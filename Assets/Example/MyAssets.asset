@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9322f44ee0b714530bc7130846494818, type: 3}
-  m_Name: MyAssetLookup
+  m_Name: MyAssets
   m_EditorClassIdentifier: 
   rootDirectory: Assets/Example/MyAssets
   typeName: MyAssetType

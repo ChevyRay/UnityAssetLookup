@@ -75,6 +75,8 @@ public class AssetLookupEditor : Editor
 
         var lookup = (AssetLookup)target;
 
+        UpdateAssetLookup(lookup);
+
         GUILayout.Label("Assets:", EditorStyles.boldLabel);
 
         scroll = EditorGUILayout.BeginScrollView(scroll);
@@ -87,7 +89,5 @@ public class AssetLookupEditor : Editor
         }
         EditorGUI.EndDisabledGroup();
         EditorGUILayout.EndScrollView();
-
-        UpdateAssetLookup(lookup);
     }
 }
