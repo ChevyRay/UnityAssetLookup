@@ -43,7 +43,7 @@ public class AssetLookupEditor : Editor
                 if (asset.GetType().Name == lookup.typeName)
                 {
                     lookup.assets.Add(asset);
-                    var i = lookup.rootDirectory.Length + 1;
+                    var i = dir.Length + 1;
                     var j = path.IndexOf('.');
                     lookup.paths.Add(path.Substring(i, j - i));
                 }
@@ -63,6 +63,8 @@ public class AssetLookupEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
+
         serializedObject.Update();
         EditorGUILayout.PropertyField(dirProp);
 

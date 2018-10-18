@@ -11,7 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9322f44ee0b714530bc7130846494818, type: 3}
   m_Name: MyAssets
   m_EditorClassIdentifier: 
-  rootDirectory: Assets
-  typeName: 
-  assets: []
-  paths: []
+  rootDirectory: Assets/Example/MyAssets
+  typeName: MyAssetType
+  assets:
+  - {fileID: 11400000, guid: 145b012c21b6b44b5b0493a592c7ca1f, type: 2}
+  - {fileID: 11400000, guid: 54ff18e1bdecd4b1a8a3c9e0ca60a29c, type: 2}
+  - {fileID: 11400000, guid: fb2a3bdf80dd140f7aebe19fe5d1d864, type: 2}
+  paths:
+  - FirstAsset
+  - SecondAsset
+  - ThirdAsset

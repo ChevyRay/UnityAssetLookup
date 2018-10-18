@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewAssetLookup", menuName = "Asset Lookup")]
 public class AssetLookup : ScriptableObject
 {
+    [HideInInspector]
     public string rootDirectory = "Assets";
+
+    [HideInInspector]
     public string typeName;
 
     [HideInInspector]
