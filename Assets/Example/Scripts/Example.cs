@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Example : MonoBehaviour
 {
@@ -8,11 +6,8 @@ public class Example : MonoBehaviour
 
     void Start()
     {
-        //Find some objects
-
         var first = assets.Find<MyAssetType>("FirstAsset");
         var third = assets.Find<MyAssetType>("ThirdAsset");
-
         Debug.Log("FirstAsset: " + first);
         Debug.Log("ThirdAsset: " + third);
     }
