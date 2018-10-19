@@ -17,18 +17,28 @@ public class AssetLookup : ScriptableObject
     [HideInInspector]
     public List<string> paths;
 
-    Dictionary<string, Object> dict;
+    Dictionary<string, Object> assetDict;
+    Dictionary<Object, string> pathDict;
+
+    void BuildDictionaries()
+    {
+        if (assetDict == null || assetDict.Count != assets.Count)
+        {
+            assetDict = new Dictionary<string, Object>(System.StringComparer.Ordinal);
+            pathDict = new Dictionary<Object, string>();
+            for (int i = 0; i < assets.Count; ++i)
+            {
+                assetDict[paths[i]] = assets[i];
+                pathDict[assets[i]] = paths[i];
+            }
+        }
+    }
 
     public T Find<T>(string name) where T : Object
     {
-        if (dict == null)
-        {
-            dict = new Dictionary<string, Object>(System.StringComparer.Ordinal);
-            for (int i = 0; i < assets.Count; ++i)
-                dict[paths[i]] = assets[i];
-        }
+        BuildDictionaries();
         Object obj;
-        dict.TryGetValue(name, out obj);
+        assetDict.TryGetValue(name, out obj);
         return obj as T;
     }
 
@@ -37,5 +47,13 @@ public class AssetLookup : ScriptableObject
         foreach (var obj in assets)
             if (obj is T)
                 yield return obj as T;
+    }
+
+    public string GetPath(Object asset)
+    {
+        BuildDictionaries();
+        string path;
+        pathDict.TryGetValue(asset, out path);
+        return path;
     }
 }
